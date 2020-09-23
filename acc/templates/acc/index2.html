@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Reports</title>
+    {% load static %}
+    <link rel="icon" type="image/png" href="{% static 'acc\images/favicon.png' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="{% static 'acc\css1/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'acc\css1/bootstrap-select.css' %}">
+    <link href="{% static 'acc\css1/font-awesome.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <script type='text/javascript' src="{% static 'acc\js1/jquery-2.2.3.min.js' %}"></script>
+    <link href="{% static 'acc\css1/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{% static 'acc\css4/footer1.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{% static 'acc\css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Online Recharge Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!--//meta data-->
+    <!-- online fonts -->
+    <link href="//fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Oxygen:300,400,700&amp;subset=latin-ext" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+    <script>
+        $(document).ready(function() {
+            $("select.aaaa").change(function() {
+                var selectedplan = $(this).children("option:selected").val();
+                // alert("You have selected the country - " + selectedplan);
+
+                document.getElementById('amount').innerHTML = selectedplan;
+            });
+        });
+    </script>
+
+
+<style>
+    * {
+      box-sizing: border-box;
+    }
+    #target {
+  background:#fff;
+  width:800px;
+  height:800px;
+  height:400px;
+  padding:5px;
+  display:none;
+}
+
+.Hide
+{
+  display:none;
+}
+#target1 {
+  background:#fff;
+  width:800px;
+  height:800px;
+  height:400px;
+  padding:5px;
+  display:none;
+}
+
+.Hide1
+{
+  display:none;
+}
+    
+    .column {
+      float: left;
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      font-size: 20px;
+      cursor: pointer;
+      color: white;
+    }
+    
+    .containerTab {
+      padding: 20px;
+      color: white;
+    }
+    
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Closable button inside the container tab */
+    .closebtn {
+      float: right;
+      color: white;
+      font-size: 35px;
+      cursor: pointer;
+    }
+    
+    
+    /*******************************
+    * ACCORDION WITH TOGGLE ICONS
+    * Does not work properly if "in" is added after "collapse".
+    *******************************/
+    	.panel-group .panel {
+    		border-radius: 0;
+    		box-shadow: none;
+    		border-color: #EEEEEE;
+    	}
+    
+    	.panel-default > .panel-heading {
+    		padding: 0;
+    		border-radius: 0;
+    		color: #212121;
+    		background-color: #FAFAFA;
+    		border-color: #EEEEEE;
+    	}
+    
+    	.panel-title {
+    		font-size: 14px;
+    	}
+    
+    	.panel-title > a {
+    		display: block;
+    		padding: 15px;
+    		text-decoration: none;
+    	}
+    
+    	.more-less {
+    		float: right;
+    		color: #212121;
+    	}
+    
+    	.panel-default > .panel-heading + .panel-collapse > .panel-body {
+    		border-top-color: #EEEEEE;
+    	}
+    
+    /* ----- v CAN BE DELETED v ----- */
+    body {
+    }
+    
+    .demo {
+    }
+        .toggled[aria-hidden] {
+        overflow: hidden;
+        visibility: hidden; /* Removes content from keyboard focus chain */
+        opacity: 0;
+        max-height: 0;
+        transition: 
+            visibility 0s linear .6s,
+            opacity .6s ease-in,
+            max-height .6s ease-out;
+    }
+    .toggled[aria-hidden="true"] {
+        max-height: 0 !important; /* Overrides inline style */
+    }
+    .toggled[aria-hidden="false"] {
+        visibility: visible;
+        opacity: 1;
+        max-height: 50em; /* Set more accurately inline by JavaScript */
+        transition-delay: 0s, 0s, 0s;
+        transition-timing-function: linear, linear, ease-out;
+    }
+        </style>
+</head>
+
+<body>
+    <div>
+
+        <div class="header">
+
+            <div class="logo">
+
+                <h1><a href="../home/" style="color: white;"><img src="{% static 'acc\images/payeaze.png' %}" style="height: 40px; padding-left: 30px; padding-top: 1px;"></a></h1>
+
+            </div>
+
+            <div class="top-nav" style="float:right;margin-right:10px;">
+
+                <span class="menu"><i class="fa fa-bars" aria-hidden="true" style="padding-top: 10px;"></i></span>
+
+                <ul class="nav1" style="float:right;margin-right:10px;">
+                    <li style="color:white;">Hi, {{user.email}}</li>
+                    
+                    <li><a href="../recharge/">Recharge</a></li>
+
+                    <li><a href="../contact/">Contact Us</a></li>
+
+                    
+                    <li><a href="../logout/">Logout</a></li>
+
+
+
+
+
+
+
+                </ul>
+
+                <script>
+
+                    $("span.menu").click(function() {
+
+                        $("ul.nav1").slideToggle(300, function() {});
+
+                    });
+
+                </script>
+
+            </div>
+
+            <div class="clearfix"> </div>
+
+        </div>
+
+
+
+    </div>
+        <br>
+        
+        <br><br>
+        
+        
+        <div class="container demo">
+            <h2>Recharge History</h2><br><hr>
+            {% for i in data %}
+            {% if i.r_phone == user.username %}
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="heading{{i.id_no}}">
+				<h4 class="panel-title">
+					<a class="toggler" role="button" onclick="(function(b){var s=b.getAttribute('aria-expanded')==='true',c=document.getElementById(b.getAttribute('aria-controls'));if(!c)return;c.setAttribute('style','max-height:'+c.scrollHeight+'px');b.setAttribute('aria-expanded',!s);c.setAttribute('aria-hidden',s);})(this);"
+                            aria-controls="toggled{{i.id_no}}" aria-expanded="false">
+						<i class="more-less glyphicon glyphicon-plus"></i>
+						{{i.phone}}
+					</a>
+				</h4>
+			</div>
+			<div id="toggled{{i.id_no}}" class="toggled" aria-hidden="true">
+				<div class="panel-body">
+				    <center>
+				        <div class="row">
+                                <div class="col 4">
+                                    <h5 style="padding-bottom: 4px;">My Plan:</h5>{{i.plan}}
+                                </div>
+                                <div class="col 4" style="justify-content: right;">
+                                    <h5 style="padding-bottom: 4px;">Validity:</h5>{{i.validity}} Months
+                                </div>
+                                                                <div class="col 4" style="justify-content: right;">
+                                    <h5 style="padding-bottom: 4px;">Payment Status:</h5>{{i.t_status}}
+                                </div>
+                            </div>
+				            <hr>
+					        {% if i.month1 %}
+                                <div class="row">
+                                    <div class="col 4">
+                                        1st Month
+                                    </div>
+                                    <div class="col 4">
+                                        {{i.dmonth1}}
+                                    </div>
+                                    <div class="col 4">
+                                        Successful
+                                    </div>
+                                </div>
+                                <hr>
+                            {% endif %}
+                            {% if i.month2 %}
+                                <div class="row">
+                                    <div class="col 4">
+                                        2nd Month
+                                    </div>
+                                    <div class="col 4">
+                                        {{i.dmonth2}}
+                                    </div>
+                                    <div class="col 4">
+                                        Successful
+                                    </div>
+                                </div>
+                                <hr>
+                                {% endif %}
+                                
+                                {% if i.month3 %}
+                                <div class="row">
+                                    <div class="col 4">
+                                        3rd Month
+                                    </div>
+                                    <div class="col 4">
+                                        {{i.dmonth3}}
+                                    </div>
+                                    <div class="col 4">
+                                        Successful
+                                    </div>
+                                </div>
+                                <hr>
+                                {% endif %}
+                                
+                                {% if i.month4 %}
+                                <div class="row">
+                                    <div class="col 4">
+                                        4th Month
+                                    </div>
+                                    <div class="col 4">
+                                        {{i.dmonth4}}
+                                    </div>
+                                    <div class="col 4">
+                                        Successful
+                                    </div>
+                                </div>
+                                <hr>
+                                {% endif %}
+                                
+                                {% if i.month5 %}
+                                <div class="row">
+                                    <div class="col 4">
+                                        5th Month
+                                    </div>
+                                    <div class="col 4">
+                                        {{i.dmonth5}}
+                                    </div>
+                                    <div class="col 4">
+                                        Successful
+                                    </div>
+                                </div>
+                                <hr>
+                                {% endif %}
+                                
+                                {% if i.month6 %}
+                                <div class="row">
+                                    <div class="col 4">
+                                        6th Month
+                                    </div>
+                                    <div class="col 4">
+                                        {{i.dmonth6}}
+                                    </div>
+                                    <div class="col 4">
+                                        Successful
+                                    </div>
+                                </div>
+                                <hr>
+                                {% endif %}
+                                
+                                {% if i.month7 %}
+                                <div class="row">
+                                    <div class="col 4">
+                                        7th Month
+                                    </div>
+                                    <div class="col 4">
+                                        {{i.dmonth7}}
+                                    </div>
+                                    <div class="col 4">
+                                        Successful
+                                    </div>
+                                </div>
+                                <hr>
+                                {% endif %}
+                                
+                                {% if i.month8 %}
+                                <div class="row">
+                                    <div class="col 4">
+                                        8th Month
+                                    </div>
+                                    <div class="col 4">
+                                        {{i.dmonth8}}
+                                    </div>
+                                    <div class="col 4">
+                                        Successful
+                                    </div>
+                                </div>
+                                <hr>
+                                {% endif %}
+                                
+                                {% if i.month9 %}
+                                <div class="row">
+                                    <div class="col 4">
+                                        9th Month
+                                    </div>
+                                    <div class="col 4">
+                                        {{i.dmonth9}}
+                                    </div>
+                                    <div class="col 4">
+                                        Successful
+                                    </div>
+                                </div>
+                                <hr>
+                                {% endif %}
+                                
+                                {% if i.month10 %}
+                                <div class="row">
+                                    <div class="col 4">
+                                        10th Month
+                                    </div>
+                                    <div class="col 4">
+                                        {{i.dmonth10}}
+                                    </div>
+                                    <div class="col 4">
+                                        Successful
+                                    </div>
+                                </div>
+                                <hr>
+                                {% endif %}
+                                
+                                {% if i.month11 %}
+                                <div class="row">
+                                    <div class="col 4">
+                                        11th Month
+                                    </div>
+                                    <div class="col 4">
+                                        {{i.dmonth11}}
+                                    </div>
+                                    <div class="col 4">
+                                        Successful
+                                    </div>
+                                </div>
+                                <hr>
+                                {% endif %}
+                                {% if i.month12 %}
+                                <div class="row">
+                                    <div class="col 4">
+                                        12th Month
+                                    </div>
+                                    <div class="col 4">
+                                        {{i.dmonth12}}
+                                    </div>
+                                    <div class="col 4">
+                                        Successful
+                                    </div>
+                                </div>
+                                <hr>
+                                {% endif %}
+                                </center>
+            				</div>
+            			</div>
+            		</div>
+            	</div><!-- panel-group -->
+            	{% endif %}
+            	{% endfor %}
+            	<br>
+            </div><!-- container -->
+        
+        
+        <!--<script>
+        /*******************************
+        * ACCORDION WITH TOGGLE ICONS
+        *******************************/
+            	function toggleIcon(e) {
+                    $(e.target)
+                        .prev('.panel-heading')
+                        .find(".more-less")
+                        .toggleClass('glyphicon-plus glyphicon-minus');
+                }
+                $('.panel-group').on('hidden.bs.collapse', toggleIcon);
+                $('.panel-group').on('shown.bs.collapse', toggleIcon);
+        </script>-->
+        
+
+    
+
+    <!--Plug-in Initialisation-->
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            //Vertical Tab
+            $('#parentVerticalTab').easyResponsiveTabs({
+                type: 'vertical', //Types: default, vertical, accordion
+                width: 'auto', //auto or any width like 600px
+                fit: true, // 100% fit in a container
+                closed: 'accordion', // Start closed if in accordion view
+                tabidentify: 'hor_1', // The tab groups identifier
+                activate: function(event) { // Callback function if tab is switched
+                    var $tab = $(this);
+                    var $info = $('#nested-tabInfo2');
+                    var $name = $('span', $info);
+                    $name.text($tab.text());
+                    $info.show();
+                }
+            });
+        });
+    </script>
+
+
+
+    <!--offers-->
+    <div class="w3-offers">
+        <div class="container">
+            <!--<div class="w3-agile-offers">-->
+            <!--    <h3>the best offers</h3>-->
+            <!--    <p>Contrary to popular belief , Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>-->
+            <!--</div>-->
+        </div>
+    </div>
+
+
+
+    <footer class="site-footer">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <img src="{% static 'acc\images/payeaze.png' %}" style="height: 150px; padding-left: 70px; padding-bottom: 30px;">
+                </div>   
+      
+                <div class="col-xs-6 col-md-3" style="padding-right: 80px;">
+                  <h6>Quick Links</h6><br>
+                  <ul class="footer-links">
+                    <!--<li><a href="#">About Us</a></li>-->
+                    <li><a href="../contact/">Contact Us</a></li>
+                    <li><a href="../recharge/">Recharge</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                  </ul>
+                </div>
+              </div>
+              <hr>
+            </div>
+            <div class="container">
+              <!-- <center><div class="row"> -->
+                <!-- <div class="col-md-8 col-sm-6 col-xs-12"> -->
+                  <center><p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by 
+               <a href="https://www.code-e-python.com">CeP</a>.
+                  </p></center><br>
+                <!-- </div> -->
+      
+                
+              <!-- </div></center> -->
+            </div>
+      </footer>
+
+    <!--//footer-->
+
+    <!-- for bootstrap working -->
+    <script src="{% static 'acc\js1/bootstrap.js' %}"></script>
+    <!-- //for bootstrap working -->
+    <!-- Responsive-slider -->
+    <!-- Banner-slider -->
+    <script src="{% static 'acc\js1/responsiveslides.min.js' %}"></script>
+    <script>
+        $(function() {
+            $("#slider").responsiveSlides({
+                auto: true,
+                speed: 500,
+                namespace: "callbacks",
+                pager: true,
+            });
+        });
+    </script>
+    <!-- //Banner-slider -->
+    <!-- //Responsive-slider -->
+    <!-- Bootstrap select option script -->
+    <script src="{% static 'acc\js1/bootstrap-select.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+            var mySelect = $('#first-disabled2');
+
+            $('#special').on('click', function() {
+                mySelect.find('option:selected').prop('disabled', true);
+                mySelect.selectpicker('refresh');
+            });
+
+            $('#special2').on('click', function() {
+                mySelect.find('option:disabled').prop('disabled', false);
+                mySelect.selectpicker('refresh');
+            });
+
+            $('#basic2').selectpicker({
+                liveSearch: true,
+                maxOptions: 1
+            });
+        });
+    </script>
+    <!-- //Bootstrap select option script -->
+
+    <!-- easy-responsive-tabs -->
+    <link rel="stylesheet" type="text/css" href="{% static 'acc\css1/easy-responsive-tabs.css' %}" />
+    <script src="{% static 'acc\js1/easyResponsiveTabs.js' %}"></script>
+    <!-- //easy-responsive-tabs -->
+    <!-- here stars scrolling icon -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            /*
+            	var defaults = {
+            	containerID: 'toTop', // fading element id
+            	containerHoverID: 'toTopHover', // fading element hover id
+            	scrollSpeed: 1200,
+            	easingType: 'linear' 
+            	};
+            */
+
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="{% static 'acc\js1/move-top.js' %}"></script>
+    <script type="text/javascript" src="{% static 'acc\js1/easing.js' %}"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 1000);
+            });
+        });
+    </script>
+    
+    <!-- start-smoth-scrolling -->
+    <!-- //here ends scrolling icon -->
+</body>
+<!-- //body -->
+
+</html>
+<!-- //html -->

@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+
+<html>
+
+
+
+<head>
+
+    <title>Recharge</title>
+
+    {% load static %}
+
+    <link href="{% static 'acc\css1/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+
+    <link rel="stylesheet" href="{% static 'acc\css1/bootstrap-select.css' %}">
+    <!--Footer CSS-->
+
+    <link href="{% static 'acc\css4/footer1.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <link rel="icon" type="image/png" href="{% static 'acc\images/favicon.png' %}">
+
+    <!--Footer CSS-->
+
+    <link href="{% static 'acc\css1/font-awesome.css' %}" rel="stylesheet" type="text/css" media="all" />
+
+    <script type='text/javascript' src="{% static 'acc\js1/jquery-2.2.3.min.js' %}"></script>
+
+    <link href="{% static 'acc\css1/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+
+    <link href="{% static 'acc\css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <meta name="keywords" content="Website Name Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+    
+    <script type="application/x-javascript">
+
+        addEventListener("load", function() {
+
+            setTimeout(hideURLbar, 0);
+
+        }, false);
+
+
+
+        function hideURLbar() {
+
+            window.scrollTo(0, 1);
+
+        }
+
+    </script>
+
+    <!--//meta data-->
+
+    <!-- online fonts -->
+
+    <link href="//fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+
+    <link href="//fonts.googleapis.com/css?family=Oxygen:300,400,700&amp;subset=latin-ext" rel="stylesheet">
+
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+    <style>
+        li.nostyle {
+    list-style-type: none;
+}
+    </style>
+    <script>
+
+        $(document).ready(function() {
+
+            $("select.aaaa").change(function() {
+
+                var selectedplan = $(this).children("option:selected").val();
+
+                // alert("You have selected the country - " + selectedplan);
+
+
+
+                document.getElementById('amount').innerHTML = selectedplan;
+
+            });
+
+        });
+
+    </script>
+    <script>
+        $(document).on('submit', '#signup',function(e){
+            e.preventDefault();
+    $.ajax({
+        type:'POST',
+        url:'{% url "index1" %}',
+        data:{
+            r_phone:$('#r_phone').val(),
+            r_name:$('#r_name').val(),
+            tel:$('#tel').val(),
+            sim:$('#sim').val(),
+            state:$('#state').val(),
+            plan:$('#plan').val(),
+            confirm:$('#confirm').val(),
+            validity:$('#validity').val(),
+            csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+            action: 'post'
+        },
+        success:function(json){
+            // document.getElementById("sendotp").reset();
+            // alert('Recharge Complete');
+            window.open('../pay/','_self')
+        },
+        error : function(xhr,errmsg,err) {
+        console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+    }
+    });
+});
+    </script>
+
+
+</head>
+
+
+
+<body>
+
+
+    <div class="">
+
+        <div class="header">
+
+            <div class="logo">
+
+                <h1><a href="../home/" style="color: white;"><img src="{% static 'acc\images/payeaze.png' %}" style="height: 40px; padding-left: 30px; padding-top: 1px;"></a></h1>
+
+            </div>
+
+            <div class="top-nav" style="float:right;margin-right:10px;">
+
+                <span class="menu"><i class="fa fa-bars" aria-hidden="true" style="padding-top: 10px;"></i></span>
+
+                <ul class="nav1" style="float:right;margin-right:10px;">
+                    <li><a href=#>Hi, {{user.email}}</a></li>
+                    
+                    <li><a href="../home/">Home</a></li>
+
+                    <li><a href="../contact/">Contact</a></li>
+
+                    <li><a href="../orders/">Reports</a></li>
+                    
+                    <li><a href="../logout/">Logout</a></li>
+
+
+
+
+
+
+
+                </ul>
+
+                <script>
+
+                    $("span.menu").click(function() {
+
+                        $("ul.nav1").slideToggle(300, function() {});
+
+                    });
+
+                </script>
+
+            </div>
+
+            <div class="clearfix"> </div>
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+    <!--//-->
+
+    <div class=" header-right">
+
+        <div class="">
+
+            <div class="slider">
+
+                <div class="callbacks_container">
+
+                    <ul class="rslides" id="slider">
+
+                        <li>
+
+                            <div class="banner1">
+
+                                <!--<div class="caption">-->
+
+                                <!--    <h3><span>Get a</span> coupon voucher on Mobile Recharge</h3>-->
+
+                                <!--    <p><a href="#mobilew3layouts" class="scroll">Recharge now</a></p>-->
+
+                                <!--</div>-->
+
+                            </div>
+
+                        </li>
+
+                        <li>
+
+                            <div class="banner2">
+
+                                <!--<div class="caption">-->
+
+                                <!--    <h3><span>50% off</span> on train Tickets</h3>-->
+
+                                <!--    <p><a href="train.html">Book now</a></p>-->
+
+                                <!--</div>-->
+
+                            </div>
+
+                        </li>
+
+                        <li>
+
+                            <div class="banner3">
+
+                                <div class="caption">
+
+                                <!--    <h3><span>Flat Rs.200 Cash back</span> on Movie Tickets</h3>-->
+
+                                <!--    <p><a href="movies.html">Book now</a></p>-->
+
+                                <!--</div>-->
+
+                            </div>
+
+                        </li>
+
+                        <li>
+
+                            <div class="banner4">
+
+                                <!--<div class="caption">-->
+
+                                <!--    <h3><span>Upto Rs.125 Discount </span> & Flat 100% Money Back</h3>-->
+
+                                <!--    <p><a href="bus.html">Book now</a></p>-->
+
+                                <!--</div>-->
+
+                            </div>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <!--Vertical Tab-->
+
+    <div class="categories-section main-grid-border" id="mobilew3layouts">
+
+        <div class="container">
+
+            <div class="category-list">
+
+                <div id="parentVerticalTab">
+
+                    <div class="agileits-tab_nav">
+
+                        <ul class="resp-tabs-list hor_1">
+
+                            <li><i class="icon fa fa-mobile" aria-hidden="true"></i>Mobile</li>
+
+
+
+                        </ul>
+
+                    </div>
+                    <div class="resp-tabs-container hor_1">
+
+                        <!-- tab1 -->
+
+                        <div>
+
+                            <div class="tabs-box">
+
+
+
+                                <img src="{% static 'acc\images/mobile.png' %}" class="w3ls-mobile" alt="" data-pin-nopin="true">
+
+                                <ul class="tabs-menu">
+
+                                    <li><a href="#tab1"><label class="radio"><input type="radio" name="radio" checked=""><i></i>Prepaid</label></a></li>
+
+                                    <!-- <li><a href="#tab2"><label class="radio"><input type="radio" name="radio"><i></i>Postpaid</label></a></li> -->
+
+                                </ul>
+
+                                <div class="clearfix"> </div>
+
+                                <div class="tab-grids">
+
+                                    <div id="tab1" class="tab-grid">
+
+                                        <div class="login-form">
+
+                                            <form method="post" id="signup">{% csrf_token %}
+
+                                                <ol>
+
+                                                    <li class="nostyle">
+
+                                                        <h4>Enter your mobile number</h4>
+                                                        <input type="text" id="r_phone" name="r_phone" value="{{user.username}}" hidden />
+                                                        <input type="text" id="r_name" name="r_name" value="{{user.email}}" hidden />
+                                                        <input type="tel" id="tel" name="tel" pattern="\d{10}" placeholder="Enter Mobile Number" required="required" />
+
+                                                        <p class="validation01">
+
+                                                            <span class="invalid">Please enter a valid mobile
+
+                                                                number</span>
+
+                                                            <span class="valid">That's what we wanted!</span>
+
+                                                        </p>
+
+                                                    </li>
+
+                                                    <li class="nostyle">
+
+                                                        <div class="agileits-select">
+
+                                                            <select class="selectpicker show-tick" id="sim" data-live-search="true" required="required">
+
+                                                                <h4>Select Operator</h4>
+
+                                                                <option data-tokens="Airtel">Airtel</option>
+
+                                                                <option data-tokens="Aircel">Aircel</option>
+
+                                                                <option data-tokens="BSNL">BSNL</option>
+
+                                                                <option data-tokens="Tata Docomo">Tata Docomo</option>
+
+                                                                <option data-tokens="Reliance GSM">Reliance GSM</option>
+
+                                                                <option data-tokens="Reliance CDMA">Reliance CDMA
+
+                                                                </option>
+
+                                                                <option data-tokens="Telenor">Telenor</option>
+
+                                                                <option data-tokens="Jio">Jio</option>
+
+                                                                <option data-tokens="Vodafone">Vodafone</option>
+
+                                                                <option data-tokens="Idea">Idea</option>
+
+                                                                <option data-tokens="MTS">MTS</option>
+
+                                                            </select>
+
+                                                        </div>
+
+                                                    </li>
+
+                                                    <li class="nostyle">
+
+                                                        <div class="agileits-select">
+
+                                                            <select class="selectpicker show-tick" id="state" data-live-search="true" required="required">
+
+                                                                <h4>Select Circle</h4>
+
+                                                                <option data-tokens="Chennai">Chennai</option>
+
+                                                                <option data-tokens="Delhi NCR">Delhi NCR</option>
+
+                                                                <option data-tokens="Kolkata">Kolkata</option>
+
+                                                                <option data-tokens="Mumbai">Mumbai</option>
+
+                                                                <option data-tokens="Maharashtra & Goa">Maharashtra &
+
+                                                                    Goa</option>
+
+                                                                <option data-tokens="Assam">Assam</option>
+
+                                                                <option data-tokens="Bihar & Jharkhand">Bihar &
+
+                                                                    Jharkhand</option>
+
+                                                                <option data-tokens="Gujarat">Gujarat</option>
+
+                                                                <option data-tokens="Haryana">Haryana</option>
+
+                                                                <option data-tokens="Himachal Pradesh">Himachal Pradesh
+
+                                                                </option>
+
+                                                                <option data-tokens="Jummu & Kashmir">Jummu & Kashmir
+
+                                                                </option>
+
+                                                                <option data-tokens="Karnataka">Karnataka</option>
+
+                                                                <option data-tokens="Kerala">Kerala</option>
+
+                                                                <option data-tokens="Andhra Pradesh">Andhra Pradesh
+
+                                                                </option>
+
+                                                                <option data-tokens="MP & Chattisgarh">MP & Chattisgarh
+
+                                                                </option>
+
+                                                                <option data-tokens="North East">North East</option>
+
+                                                                <option data-tokens="Orissa">Orissa</option>
+
+                                                                <option data-tokens="Punjab">Punjab</option>
+
+                                                                <option data-tokens="Rajasthan">Rajasthan</option>
+
+                                                                <option data-tokens="Tamilnadu">Tamilnadu</option>
+
+                                                                <option data-tokens="UP East">UP East</option>
+
+                                                                <option data-tokens="UP West & Utterkhand">UP West &
+
+                                                                    Utterkhand</option>
+
+                                                                <option data-tokens="West Bengal">West Bengal</option>
+
+                                                            </select>
+
+                                                        </div>
+
+                                                    </li>
+
+                                                    <li class="nostyle">
+
+                                                        <div class="agileits-select">
+
+                                                            <select class="selectpicker show-tick aaaa" data-live-search="true" id="plan">
+
+                                                                <h4>Select Plan</h4>
+
+                                                                <!--<option data-tokens="plan1"><span id="a" style="color:red;">Rs.499</span> Talktime + 4 gb data</option>-->
+
+                                                                <option data-tokens="plan2"><span id="b" style="color:red;">₹699</span> - Premium Plan</option>
+
+                                                                <!--<option data-tokens="plan3"><span id="c" style="color:red;">Rs.399</span> Talktime + 4 gb data</option>-->
+
+                                                                
+
+                                                            </select>
+
+                                                        </div>
+
+
+
+                                                    </li>
+
+                                                    <li class="nostyle">
+                                                        <input type="text" id="validity" name="validity" value="6" hidden />
+
+                                                        <div class="mobile-right ">
+
+                                                            <input type="checkbox" id="confirm" value="Yes" style="padding: 10px;" required><label><h4 class="m-2 p-10"> Confirm Plan</h4></label>
+
+                                                            <div id="amount" style="color:red">
+
+                                                            </div>
+
+
+
+                                                            <div class="clearfix"></div>
+
+                                                        </div>
+
+                                                    </li>
+
+                                                    <li class="nostyle">
+
+                                                        <input type="submit" class="submit" value="Recharge Now" />
+
+                                                    </li>
+
+                                                </ol>
+
+                                            </form>
+
+
+
+                                        </div>
+
+
+
+                                    </div>
+                                    <h1>{{name}}</h1>
+                                    <h1>{{r_phone}}</h1>
+                                    <h1>{{name}}</h1>
+                                    <h1>{{params}}</h1>
+                                    <div id="tab2" class="tab-grid">
+
+                                        <div class="login-form">
+
+                                            <form action="recharge/" method="post" id="signup">{% csrf_token %}
+
+                                                <ol>
+
+                                                    <li>
+
+                                                        <h4>Enter your mobile number</h4>
+
+                                                        <input type="tel" id="tel" name="tel" pattern="\d{10}" placeholder="Enter Mobile Number" required />
+
+                                                        <p class="validation01">
+
+                                                            <span class="invalid">Please enter a valid mobile
+
+                                                                number</span>
+
+                                                            <span class="valid">That's what we wanted!</span>
+
+                                                        </p>
+
+                                                    </li>
+
+                                                    <li>
+
+                                                        <div class="agileits-select">
+
+                                                            <select class="selectpicker show-tick" name="sim" data-live-search="true">
+
+                                                                <h4 >Select Operator</h4>
+
+                                                                <option data-tokens="Airtel">Airtel</option>
+
+                                                                <option data-tokens="Aircel">Aircel</option>
+
+                                                                <option data-tokens="BSNL">BSNL</option>
+
+                                                                <option data-tokens="Tata Docomo">Tata Docomo</option>
+
+                                                                <option data-tokens="Reliance GSM">Reliance GSM</option>
+
+                                                                <option data-tokens="Reliance CDMA">Reliance CDMA
+
+                                                                </option>
+
+                                                                <option data-tokens="Telenor">Telenor</option>
+
+                                                                <option data-tokens="Jio">Jio</option>
+
+                                                                <option data-tokens="Vodafone">Vodafone</option>
+
+                                                                <option data-tokens="Idea">Idea</option>
+
+                                                                <option data-tokens="MTS">MTS</option>
+
+                                                            </select>
+
+                                                        </div>
+
+                                                    </li>
+
+                                                    <li>
+
+                                                        <div class="agileits-select">
+
+                                                            <select class="selectpicker show-tick" name="state" data-live-search="true" required="required">
+
+                                                                <h4>Select circle</h4>
+
+                                                                <option data-tokens="Chennai">Chennai</option>
+
+                                                                <option data-tokens="Delhi NCR">Delhi NCR</option>
+
+                                                                <option data-tokens="Kolkata">Kolkata</option>
+
+                                                                <option data-tokens="Mumbai">Mumbai</option>
+
+                                                                <option data-tokens="Maharashtra & Goa">Maharashtra &
+
+                                                                    Goa</option>
+
+                                                                <option data-tokens="Assam">Assam</option>
+
+                                                                <option data-tokens="Bihar & Jharkhand">Bihar &
+
+                                                                    Jharkhand</option>
+
+                                                                <option data-tokens="Gujarat">Gujarat</option>
+
+                                                                <option data-tokens="Haryana">Haryana</option>
+
+                                                                <option data-tokens="Himachal Pradesh">Himachal Pradesh
+
+                                                                </option>
+
+                                                                <option data-tokens="Jummu & Kashmir">Jummu & Kashmir
+
+                                                                </option>
+
+                                                                <option data-tokens="Karnataka">Karnataka</option>
+
+                                                                <option data-tokens="Kerala">Kerala</option>
+
+                                                                <option data-tokens="Andhra Pradesh">Andhra Pradesh
+
+                                                                </option>
+
+                                                                <option data-tokens="MP & Chattisgarh">MP & Chattisgarh
+
+                                                                </option>
+
+                                                                <option data-tokens="North East">North East</option>
+
+                                                                <option data-tokens="Orissa">Orissa</option>
+
+                                                                <option data-tokens="Punjab">Punjab</option>
+
+                                                                <option data-tokens="Rajasthan">Rajasthan</option>
+
+                                                                <option data-tokens="Tamilnadu">Tamilnadu</option>
+
+                                                                <option data-tokens="UP East">UP East</option>
+
+                                                                <option data-tokens="UP West & Utterkhand">UP West &
+
+                                                                    Utterkhand</option>
+
+                                                                <option data-tokens="West Bengal">West Bengal</option>
+
+                                                            </select>
+
+                                                        </div>
+
+                                                    </li>
+
+                                                    <li>
+
+                                                        <div class="agileits-select">
+
+                                                            <select class="selectpicker show-tick aaaa" name="plan" data-live-search="true">
+
+                                                                <h4>Select Plan</h4>  
+
+                                                              <!--<option data-tokens="plan1"><span id="a" style="color:red;">Rs.499</span> Talktime + 4 gb data</option>-->
+
+                                                                <option data-tokens="plan2"><span id="b" style="color:red;">₹699</span> - Premium Plan</option>
+
+                                                                <!--<option data-tokens="plan3"><span id="c" style="color:red;">Rs.399</span> Talktime + 4 gb data</option>-->
+
+                                                                
+
+                                                            </select>
+
+                                                        </div>
+
+                                                    </li>
+
+                                                    <li>
+
+                                                        <div class="mobile-right ">
+
+                                                            <input type="checkbox" name="confirm" required><label><h4 class="m-2 p-2">Confirm Plan</h4></label>
+
+                                                            <div id="amount" style="color:red">
+
+                                                            </div>
+
+                                                            <div class="clearfix"></div>
+
+                                                        </div>
+
+                                                    </li>
+
+                                                    <li>
+
+                                                        <!-- <input type="submit" class="submit" value="Pay bill" />
+                                                         -->
+                                                         <button type="submit" name="submit">Submit</button>
+
+                                                    </li>
+
+                                                </ol>
+
+                                            </form>
+
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+
+
+
+                                <div class="clearfix"> </div>
+
+                            </div>
+
+                            <!-- script -->
+
+                            <script>
+
+                                $(document).ready(function() {
+
+                                    $("#tab2").hide();
+
+                                    $("#tab3").hide();
+
+                                    $("#tab4").hide();
+
+                                    $(".tabs-menu a").click(function(event) {
+
+                                        event.preventDefault();
+
+                                        var tab = $(this).attr("href");
+
+                                        $(".tab-grid").not(tab).css("display", "none");
+
+                                        $(tab).fadeIn("slow");
+
+                                    });
+
+                                });
+
+                            </script>
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--Plug-in Initialisation-->
+
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+
+
+
+            //Vertical Tab
+
+            $('#parentVerticalTab').easyResponsiveTabs({
+
+                type: 'vertical', //Types: default, vertical, accordion
+
+                width: 'auto', //auto or any width like 600px
+
+                fit: true, // 100% fit in a container
+
+                closed: 'accordion', // Start closed if in accordion view
+
+                tabidentify: 'hor_1', // The tab groups identifier
+
+                activate: function(event) { // Callback function if tab is switched
+
+                    var $tab = $(this);
+
+                    var $info = $('#nested-tabInfo2');
+
+                    var $name = $('span', $info);
+
+                    $name.text($tab.text());
+
+                    $info.show();
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+
+
+
+
+
+
+    <!--offers-->
+
+    <div class="w3-offers">
+
+        <div class="container">
+
+            <!--<div class="w3-agile-offers">-->
+
+            <!--    <h3>the best offers</h3>-->
+
+            <!--    <p>Contrary to popular belief , Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>-->
+
+            <!--</div>-->
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+    <footer>
+
+        <!-- <link rel="stylesheet" href="../../../images/demobar_w3_4thDec2019.css"> -->
+
+        <!-- <div class="footer">
+
+            <div class="container">
+
+                <h2><a href="index.html">Website Name</a></h2>
+
+                <p>© 2020 Only Recharge. All Rights Reserved | Design by <a href="#" target="_blank">CEP</a></p>
+
+                <ul>
+
+                    <li>
+
+                        <a class="face1" href="#"></a>
+
+                    </li>
+
+                    <li>
+
+                        <a class="face2" href="#"></a>
+
+                    </li>
+
+                    <li>
+
+                        <a class="face3" href="#"></a>
+
+                    </li>
+
+                    <li>
+
+                        <a class="face4" href="#"></a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div> -->
+
+
+
+        <div class="container-fluid">
+
+
+
+            <!-- <div class="w3-agile-footer-top-at">
+
+                <div class="col-md-2 agileits-amet-sed">
+
+                    <h4>Company</h4>
+
+                    <ul class="w3ls-nav-bottom">
+
+                        <li><a href="about.html">About Us</a></li>
+
+                        <li><a href="support.html">Support</a></li>
+
+                        <li><a href="sitemap.html">Sitemap</a></li>
+
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+
+                        <li><a href="faq.html">Faq</a></li>
+
+                        <li><a href="#mobileappagileits" class="scroll">Mobile</a></li>
+
+                        <li><a href="feedback.html">Feedback</a></li>
+
+                        <li><a href="contact.html">Contact</a></li>
+
+                        <li><a href="shortcodes.html">Shortcodes</a></li>
+
+                        <li><a href="icons.html">Icons Page</a></li>
+
+
+
+                    </ul>
+
+                </div>
+
+                <div class="col-md-3 agileits-amet-sed ">
+
+                    <h4>Mobile Recharges</h4>
+
+                    <ul class="w3ls-nav-bottom">
+
+                        <li><a href="#mobilew3layouts" class="scroll">Airtel</a></li>
+
+                        <li><a href="#mobilew3layouts" class="scroll">Aircel</a></li>
+
+                        <li><a href="#mobilew3layouts" class="scroll">Vodafone</a></li>
+
+                        <li><a href="#mobilew3layouts" class="scroll">BSNL</a></li>
+
+                        <li><a href="#mobilew3layouts" class="scroll">Tata Docomo</a></li>
+
+                        <li><a href="#mobilew3layouts" class="scroll">Reliance GSM</a></li>
+
+                        <li><a href="#mobilew3layouts" class="scroll">Reliance CDMA</a></li>
+
+                        <li><a href="#mobilew3layouts" class="scroll">Telenor</a></li>
+
+                        <li><a href="#mobilew3layouts" class="scroll">MTS</a></li>
+
+                        <li><a href="#mobilew3layouts" class="scroll">Jio</a></li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <div class="col-md-2 agileits-amet-sed ">
+
+                    <h4>Payment Options</h4>
+
+                    <ul class="w3ls-nav-bottom">
+
+                        <li>Credit Cards</li>
+
+                        <li>Debit Cards</li>
+
+                        <li>Any Visa Debit Card (VBV)</li>
+
+                        <li>Direct Bank Debits</li>
+
+                        <li>Cash Cards</li>
+
+                    </ul>
+
+                </div>
+
+                <div class="clearfix"> </div>
+
+            </div> -->
+
+        </div>
+
+
+
+        <footer class="site-footer">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <img src="{% static 'acc\images/payeaze.png' %}" style="height: 150px; padding-left: 70px; padding-bottom: 30px;">
+                </div>   
+      
+                <div class="col-xs-6 col-md-3" style="padding-right: 80px;">
+                  <h6>Quick Links</h6>
+                  <ul class="footer-links">
+                    <!--<li><a href="#">About Us</a></li>-->
+                    <li><a href="../contact/">Contact Us</a></li>
+                    <li><a href="../recharge/">Recharge</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                  </ul>
+                </div>
+              </div>
+              <hr>
+            </div>
+            <div class="container">
+              <!-- <center><div class="row"> -->
+                <!-- <div class="col-md-8 col-sm-6 col-xs-12"> -->
+                  <center><p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by 
+               <a href="https://www.code-e-python.com">CeP</a>.
+                  </p></center><br>
+                <!-- </div> -->
+      
+                
+              <!-- </div></center> -->
+            </div>
+      </footer>
+    
+
+
+
+        <!--//footer-->
+
+
+
+        <!-- for bootstrap working -->
+
+        <script src="{% static 'acc\js1/bootstrap.js' %}"></script>
+
+        <!-- //for bootstrap working -->
+
+        <!-- Responsive-slider -->
+
+        <!-- Banner-slider -->
+
+        <script src="{% static 'acc\js1/responsiveslides.min.js' %}"></script>
+
+        <script>
+
+            $(function() {
+
+                $("#slider").responsiveSlides({
+
+                    auto: true,
+
+                    speed: 500,
+
+                    namespace: "callbacks",
+
+                    pager: true,
+
+                });
+
+            });
+
+        </script>
+
+        <!-- //Banner-slider -->
+
+        <!-- //Responsive-slider -->
+
+        <!-- Bootstrap select option script -->
+
+        <script src="{% static 'acc\js1/bootstrap-select.js' %}"></script>
+
+        <script>
+
+            $(document).ready(function() {
+
+                var mySelect = $('#first-disabled2');
+
+
+
+                $('#special').on('click', function() {
+
+                    mySelect.find('option:selected').prop('disabled', true);
+
+                    mySelect.selectpicker('refresh');
+
+                });
+
+
+
+                $('#special2').on('click', function() {
+
+                    mySelect.find('option:disabled').prop('disabled', false);
+
+                    mySelect.selectpicker('refresh');
+
+                });
+
+
+
+                $('#basic2').selectpicker({
+
+                    liveSearch: true,
+
+                    maxOptions: 1
+
+                });
+
+            });
+
+        </script>
+
+        <!-- //Bootstrap select option script -->
+
+
+
+        <!-- easy-responsive-tabs -->
+
+        <link rel="stylesheet" type="text/css" href="{% static 'acc\css1/easy-responsive-tabs.css' %}" />
+
+        <script src="{% static 'acc\js1/easyResponsiveTabs.js' %}"></script>
+
+        <!-- //easy-responsive-tabs -->
+
+        <!-- here stars scrolling icon -->
+
+        <script type="text/javascript">
+
+            $(document).ready(function() {
+
+                /*
+
+                	var defaults = {
+
+                	containerID: 'toTop', // fading element id
+
+                	containerHoverID: 'toTopHover', // fading element hover id
+
+                	scrollSpeed: 1200,
+
+                	easingType: 'linear' 
+
+                	};
+
+                */
+
+
+
+                $().UItoTop({
+
+                    easingType: 'easeOutQuart'
+
+                });
+
+
+
+            });
+
+        </script>
+
+        <!-- start-smoth-scrolling -->
+
+        <script type="text/javascript" src="{% static 'acc\js1/move-top.js' %}"></script>
+
+        <script type="text/javascript" src="{% static 'acc\js1/easing.js' %}"></script>
+
+        <script type="text/javascript">
+
+            jQuery(document).ready(function($) {
+
+                $(".scroll").click(function(event) {
+
+                    event.preventDefault();
+
+                    $('html,body').animate({
+
+                        scrollTop: $(this.hash).offset().top
+
+                    }, 1000);
+
+                });
+
+            });
+
+        </script>
+
+        <!-- start-smoth-scrolling -->
+
+        <!-- //here ends scrolling icon -->
+
+</body>
+
+<!-- //body -->
+
+
+
+</html>
+
+<!-- //html -->
